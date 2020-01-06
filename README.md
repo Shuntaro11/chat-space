@@ -31,6 +31,7 @@ Column|Type|Options|
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
+- has_many :users_groups
 - has_many :groups, through:  :users_groups
 - has_many :messages
 
@@ -39,6 +40,7 @@ Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
+- has_many :users_groups
 - has_many :users, through:  :users_groups
 - has_many :messages
 
