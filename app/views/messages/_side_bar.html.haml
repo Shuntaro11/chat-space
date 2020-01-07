@@ -1,0 +1,16 @@
+.side-bar
+  .side-bar__user-name
+    .top-items
+      .top-items__name
+        masa
+      .top-items__icons
+        = link_to "#", class: "top-items__icons__btn new_group_btn" do
+          = icon('fas', 'users')
+        = link_to "#", class: "top-items__icons__btn edit_user_btn" do
+          = icon('fas', 'cog')
+  .side-bar__group-list
+    .group-list
+      .group-list__name
+        techcamp
+      .group-list__member
+        まだメッセージがありません
