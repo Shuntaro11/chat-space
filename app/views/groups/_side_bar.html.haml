@@ -9,8 +9,10 @@
         = link_to  edit_user_path(current_user), class: "top-items__icons__btn edit_user_btn" do
           = icon('fas', 'cog')
   .side-bar__group-list
-    .group-list
-      .group-list__name
-        techcamp
-      .group-list__member
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group-list
+        = link_to group_messages_path(group) do
+          .group-list__name
+            = group.name
+          .group-list__message
+            メッセージはまだありません
