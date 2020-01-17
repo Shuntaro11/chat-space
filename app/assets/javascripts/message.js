@@ -1,46 +1,5 @@
 $(function(){
   function buildHTML(message){
-    if ( message.image ) {
-      var html =
-       `<div class="message-list" data-message-id=${message.id}>
-          <div class="message-list__upper">
-            <div class="message-list__upper__name">
-              ${message.user_name}
-            </div>
-            <div class="message-list__upper__date">
-              ${message.created_at}
-            </div>
-          </div>
-          <div class="message-list__text">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
-            <img src=${message.image} >
-          </div>
-        </div>`
-      return html;
-    } else {
-      var html =
-       `<div class="message-list" data-message-id=${message.id}>
-          <div class="message-list__upper">
-            <div class="message-list__upper__name">
-              ${message.user_name}
-            </div>
-            <div class="message-list__upper__date">
-              ${message.created_at}
-            </div>
-          </div>
-          <div class="message-list__text">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
-          </div>
-        </div>`
-      return html;
-    };
-  }
-
-  var buildHTML = function(message) {
     var html_same_new = `<div class="message-list" data-message-id=${message.id}>
                           <div class="message-list__upper">
                             <div class="message-list__upper__name">
@@ -76,7 +35,7 @@ $(function(){
   };
 
   var reloadMessages = function() {
-    last_message_id = $('.message:last').data("message-id");
+    last_message_id = $('.message-list:last').data("message-id");
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -91,8 +50,6 @@ $(function(){
         });
         $('.chat-main__message-list').append(insertHTML);
         $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
-        $(".new_message")[0].reset();
-        $(".submit-btn").prop("disabled", false);
       }
     })
     .fail(function() {
